@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เกี่ยวกับเรา - ประวัติวิทยาลัยเทคนิคยะลา</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- CSS เฉพาะหน้านี้ (Infographic & Interactive) --- */
+        
+        /* 1. ส่วนแบนเนอร์ */
+        .about-hero {
+            background: linear-gradient(135deg, var(--primary-color), #500000);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+
+        /* 2. Timeline (เส้นเวลาประวัติ) */
+        .timeline-section {
+            position: relative;
+            padding: 4rem 0;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* เส้นแกนกลาง */
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--secondary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            border-radius: 2px;
+        }
+
+        .timeline-container {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+            box-sizing: border-box;
+            transition: transform 0.3s ease;
+        }
+
+        /* เอฟเฟกต์ตอนเอาเมาส์ชี้ */
+        .timeline-container:hover {
+            transform: scale(1.05);
+            z-index: 10;
+        }
+
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: white;
+            border: 4px solid var(--primary-color);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .left { left: 0; }
+        .right { left: 50%; }
+        .left::before { content: " "; height: 0; position: absolute; top: 22px; width: 0; z-index: 1; right: 30px; border: medium solid white; border-width: 10px 0 10px 10px; border-color: transparent transparent transparent white; }
+        .right::before { content: " "; height: 0; position: absolute; top: 22px; width: 0; z-index: 1; left: 30px; border: medium solid white; border-width: 10px 10px 10px 0; border-color: transparent white transparent transparent; }
+        .right::after { left: -10px; }
+
+        .content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-left: 5px solid var(--primary-color);
+        }
+
+        /* 3. Infographic Stats (ตัวเลขสถิติ) */
+        .stats-section {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            background-image: url('https://www.transparenttextures.com/patterns/cubes.png'); /* เพิ่มลายพื้นหลังจางๆ */
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            transition: 0.3s;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .stat-card:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-10px);
+        }
+
+        .stat-card i {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        /* Responsive */
+        @media screen and (max-width: 600px) {
+            .timeline::after { left: 31px; }
+            .timeline-container { width: 100%; padding-left: 70px; padding-right: 25px; }
+            .timeline-container::before { left: 60px; border: medium solid white; border-width: 10px 10px 10px 0; border-color: transparent white transparent transparent; }
+            .left::after, .right::after { left: 21px; }
+            .right { left: 0%; }
+            .about-hero { clip-path: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container navbar">
+            <div class="logo">
+                <h1>Yala <span>Technical</span> College</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">หน้าแรก</a></li>
+                    <li><a href="Page-about.html" class="active">เกี่ยวกับเรา</a></li>
+                    <li><a href="courses.html">หลักสูตร</a></li>
+                    <li><a href="contact.html">ติดต่อเรา</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="about-hero">
+        <div class="container">
+            <i class="fa-solid fa-graduation-cap" style="font-size: 4rem; color: var(--secondary-color); margin-bottom: 20px;"></i>
+            <h1 style="font-size: 2.5rem;">ประวัติและพัฒนาการ</h1>
+            <p>เส้นทางแห่งความภาคภูมิใจ ของวิทยาลัยเทคนิคยะลา</p>
+        </div>
+    </div>
+
+    <section class="section container">
+        <h2 class="section-title">ก้าวสำคัญของเรา</h2>
+        <div class="timeline">
+            <div class="timeline-container left">
+                <div class="content">
+                    <h3 style="color: var(--primary-color);">พ.ศ. 2480</h3>
+                    <p><b>จุดเริ่มต้น:</b> ก่อตั้งขึ้นครั้งแรกในชื่อ "โรงเรียนช่างไม้ยะลา" มุ่งเน้นสอนทักษะงานฝีมือช่างไม้ให้กับเยาวชนในพื้นที่</p>
+                </div>
+            </div>
+            <div class="timeline-container right">
+                <div class="content">
+                    <h3 style="color: var(--primary-color);">พ.ศ. 2502</h3>
+                    <p><b>การเปลี่ยนแปลง:</b> ยกฐานะเป็น "โรงเรียนการช่างยะลา" เริ่มขยายหลักสูตรวิชาช่างต่างๆ เพิ่มมากขึ้น</p>
+                </div>
+            </div>
+            <div class="timeline-container left">
+                <div class="content">
+                    <h3 style="color: var(--primary-color);">พ.ศ. 2522</h3>
+                    <p><b>สู่ความทันสมัย:</b> เปลี่ยนชื่อเป็น "วิทยาลัยเทคนิคยะลา" สังกัดกรมอาชีวศึกษา เปิดสอนระดับ ปวช. และ ปวส.</p>
+                </div>
+            </div>
+            <div class="timeline-container right">
+                <div class="content">
+                    <h3 style="color: var(--primary-color);">ปัจจุบัน</h3>
+                    <p><b>ศูนย์กลางการเรียนรู้:</b> เป็นสถาบันการอาชีวศึกษาชั้นนำในจังหวัดชายแดนใต้ มุ่งเน้นเทคโนโลยี IoT, ยานยนต์ไฟฟ้า และนวัตกรรม</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="stats-section">
+        <div class="container">
+            <h2 style="margin-bottom: 40px; border-bottom: 2px solid var(--secondary-color); display: inline-block; padding-bottom: 10px;">สถิติที่น่าสนใจ</h2>
+            <div class="grid-3" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                
+                <div class="stat-card">
+                    <i class="fa-solid fa-users"></i>
+                    <div class="stat-number">3,500+</div>
+                    <p>นักเรียน/นักศึกษา</p>
+                </div>
+
+                <div class="stat-card">
+                    <i class="fa-solid fa-chalkboard-user"></i>
+                    <div class="stat-number">150+</div>
+                    <p>ครูและบุคลากร</p>
+                </div>
+
+                <div class="stat-card">
+                    <i class="fa-solid fa-award"></i>
+                    <div class="stat-number">85</div>
+                    <p>ปีแห่งประสบการณ์</p>
+                </div>
+
+                <div class="stat-card">
+                    <i class="fa-solid fa-briefcase"></i>
+                    <div class="stat-number">95%</div>
+                    <p>อัตราการได้งานทำ</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <section class="section container">
+        <div style="display: flex; flex-wrap: wrap; gap: 30px; align-items: center;">
+            <div style="flex: 1;">
+                
+                <img src="https://via.placeholder.com/500x350?text=College+Building" alt="Building" style="width: 100%; border-radius: 10px; box-shadow: 10px 10px 0px var(--secondary-color);">
+            </div>
+            <div style="flex: 1;">
+                <h2 style="color: var(--primary-color); font-size: 2rem;">ปรัชญาและอัตลักษณ์</h2>
+                <div style="margin-top: 20px;">
+                    <div style="margin-bottom: 20px;">
+                        <h3 style="color: #333;"><i class="fa-solid fa-quote-left" style="color: var(--secondary-color);"></i> ปรัชญา</h3>
+                        <p style="padding-left: 20px; border-left: 3px solid #ddd;">"ทักษะเยี่ยม เปี่ยมคุณธรรม ล้ำเลิศปัญญา นำพาพัฒนาสังคม"</p>
+                    </div>
+                    <div>
+                        <h3 style="color: #333;"><i class="fa-solid fa-fingerprint" style="color: var(--secondary-color);"></i> อัตลักษณ์</h3>
+                        <p style="padding-left: 20px; border-left: 3px solid #ddd;">"บริการดี มีจิตอาสา"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 วิทยาลัยเทคนิคยะลา. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
